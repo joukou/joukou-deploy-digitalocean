@@ -1,0 +1,26 @@
+{
+  "name": "joukou-deploy-digitalocean",
+  "version": "0.0.0",
+  "description": "CoreOS deployment of the Joukou Platform to DigitalOcean.",
+  "main": "index.js",
+  "scripts": {
+    "test": "for f in *.yml; do js-yaml -t $f; done"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joukou/joukou-deploy-digitalocean.git"
+  },
+  "keywords": [
+    "coreos",
+    "cloudinit"
+  ],
+  "author": "Isaac Johnston <isaac.johnston@joukou.com> (https://joukou.com/)",
+  "license": "Proprietary",
+  "bugs": {
+    "url": "https://github.com/joukou/joukou-deploy-digitalocean/issues"
+  },
+  "homepage": "https://github.com/joukou/joukou-deploy-digitalocean",
+  "devDependencies": {
+    "js-yaml": "3.2.1"
+  }
+}

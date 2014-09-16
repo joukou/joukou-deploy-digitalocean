@@ -1,0 +1,42 @@
+#!/bin/bash
+#TOKEN=
+SSH_KEY_ID=320867
+
+curl -vvv --request POST "https://api.digitalocean.com/v2/droplets" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer $TOKEN" \
+     --data '{
+      "region":"ams3",
+      "image":"coreos-alpha",
+      "size":"1gb",
+      "name":"core1.ams3.joukou.com",
+      "private_networking":true,
+      "ssh_keys":['$SSH_KEY_ID'],
+      "user_data": "'"$(cat cloud-config.ams3.joukou.com.yaml | sed 's/"/\\"/g')"'"
+}'
+
+curl --request POST "https://api.digitalocean.com/v2/droplets" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer $TOKEN" \
+     --data '{
+      "region":"ams3",
+      "image":"coreos-alpha",
+      "size":"1gb",
+      "name":"core2.ams3.joukou.com",
+      "private_networking":true,
+      "ssh_keys":['$SSH_KEY_ID'],
+      "user_data": "'"$(cat cloud-config.ams3.joukou.com.yaml | sed 's/"/\\"/g')"'"
+}'
+
+curl --request POST "https://api.digitalocean.com/v2/droplets" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer $TOKEN" \
+     --data '{
+      "region":"ams3",
+      "image":"coreos-alpha",
+      "size":"1gb",
+      "name":"core3.ams3.joukou.com",
+      "private_networking":true,
+      "ssh_keys":['$SSH_KEY_ID'],
+      "user_data": "'"$(cat cloud-config.ams3.joukou.com.yaml | sed 's/"/\\"/g')"'"
+}'
